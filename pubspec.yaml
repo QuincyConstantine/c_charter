@@ -1,0 +1,278 @@
+name: sc_prototype
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  syncfusion_flutter_pdfviewer: ^22.2.8
+  auto_size_text: ^3.0.0
+  cupertino_icons: ^1.0.6
+  shared_preferences: ^2.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+
+  flutter_lints: ^4.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/image/bungoton.jpg
+    - assets/image/iro.jpg
+    - assets/image/orasan.jpg
+
+
+    - assets/pdf/accounting_office/ACCOUNTING_SERVICE1.pdf
+    - assets/pdf/accounting_office/ACCOUNTING_SERVICE2.pdf
+    - assets/pdf/accounting_office/ACCOUNTING_SERVICE3.pdf
+    - assets/pdf/accounting_office/ACCOUNTING_SERVICE4.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE1.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE2.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE3.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE4.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE5.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE6.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE7.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE8.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE9.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE10.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE11.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE12.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE13.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE14.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE15.pdf
+    - assets/pdf/assessor_office/ASSESSOR_SERVICE16.pdf
+    - assets/pdf/budget_office/MBO_SERVICE1.pdf
+    - assets/pdf/budget_office/MBO_SERVICE2.pdf
+    - assets/pdf/budget_office/MBO_SERVICE3.pdf
+    - assets/pdf/budget_office/MBO_SERVICE4.pdf
+    - assets/pdf/budget_office/MBO_SERVICE5.pdf
+    - assets/pdf/budget_office/MBO_SERVICE6.pdf
+    - assets/pdf/bplo/BPLO_SERVICE1.pdf
+    - assets/pdf/bplo/BPLO_SERVICE2.pdf
+    - assets/pdf/bplo/BPLO_SERVICE3.pdf
+    - assets/pdf/bplo/BPLO_SERVICE4.pdf
+    - assets/pdf/bplo/BPLO_SERVICE5.pdf
+    - assets/pdf/bplo/BPLO_SERVICE6.pdf
+    - assets/pdf/bplo/BPLO_SERVICE7.pdf
+    - assets/pdf/bplo/BPLO_SERVICE8.pdf
+    - assets/pdf/bplo/BPLO_SERVICE9.pdf
+    - assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE1.pdf
+    - assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE2.pdf
+    - assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE3.pdf
+    - assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE4.pdf
+    - assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE5.pdf
+    - assets/pdf/eswmo/ESWMO_SERVICE1.pdf
+    - assets/pdf/eswmo/ESWMO_SERVICE2.pdf
+    - assets/pdf/eswmo/ESWMO_SERVICE3.pdf
+    - assets/pdf/health_office/MHO_SERVICE1.pdf
+    - assets/pdf/health_office/MHO_SERVICE2.pdf
+    - assets/pdf/health_office/MHO_SERVICE3.pdf
+    - assets/pdf/health_office/MHO_SERVICE4.pdf
+    - assets/pdf/health_office/MHO_SERVICE5.pdf
+    - assets/pdf/health_office/MHO_SERVICE6.pdf
+    - assets/pdf/health_office/MHO_SERVICE7.pdf
+    - assets/pdf/health_office/MHO_SERVICE8.pdf
+    - assets/pdf/health_office/MHO_SERVICE9.pdf
+    - assets/pdf/health_office/MHO_SERVICE10.pdf
+    - assets/pdf/health_office/MHO_SERVICE11.pdf
+    - assets/pdf/health_office/MHO_SERVICE12.pdf
+    - assets/pdf/health_office/MHO_SERVICE13.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE1.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE2.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE3.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE4.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE5.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE6.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE7.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE8.pdf
+    - assets/pdf/agriculture_office/MAO_SERVICE9.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE1.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE2.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE3.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE4.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE5.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE6.pdf
+    - assets/pdf/mdrrmo/MDRRMO_SERVICE7.pdf
+    - assets/pdf/hrmo/HRMO_SERVICE1.pdf
+    - assets/pdf/hrmo/HRMO_SERVICE2.pdf
+    - assets/pdf/hrmo/HRMO_SERVICE3.pdf
+    - assets/pdf/hrmo/HRMO_SERVICE4.pdf
+    - assets/pdf/hrmo/HRMO_SERVICE5.pdf
+    - assets/pdf/mcro/MCR_SERVICE1.pdf
+    - assets/pdf/mcro/MCR_SERVICE2.pdf
+    - assets/pdf/mcro/MCR_SERVICE3.pdf
+    - assets/pdf/mcro/MCR_SERVICE4.pdf
+    - assets/pdf/mcro/MCR_SERVICE5.pdf
+    - assets/pdf/mcro/MCR_SERVICE6.pdf
+    - assets/pdf/mcro/MCR_SERVICE7.pdf
+    - assets/pdf/mcro/MCR_SERVICE8.pdf
+    - assets/pdf/mcro/MCR_SERVICE9.pdf
+    - assets/pdf/mcro/MCR_SERVICE10.pdf
+    - assets/pdf/mcro/MCR_SERVICE11.pdf
+    - assets/pdf/mcro/MCR_SERVICE12.pdf
+    - assets/pdf/mcro/MCR_SERVICE13.pdf
+    - assets/pdf/mcro/MCR_SERVICE14.pdf
+    - assets/pdf/mcro/MCR_SERVICE15.pdf
+    - assets/pdf/mlgoo/MLGOO_SERVICE1.pdf
+    - assets/pdf/mlgoo/MLGOO_SERVICE2.pdf
+    - assets/pdf/mlgoo/MLGOO_SERVICE3.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE1.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE2.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE3.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE4.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE5.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE6.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE7.pdf
+    - assets/pdf/mayors_office/MAYORS_OFFICE_SERVICE8.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE1.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE2.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE3.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE4.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE5.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE6.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE7.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE8.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE9.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE10.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE11.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE12.pdf
+    - assets/pdf/mpdco/MPDC_SERVICE13.pdf
+    - assets/pdf/menro/MENRO_SERVICE1.pdf
+    - assets/pdf/menro/MENRO_SERVICE2.pdf
+    - assets/pdf/osca/OSCA_SERVICE1.pdf
+    - assets/pdf/osca/OSCA_SERVICE2.pdf
+    - assets/pdf/osca/OSCA_SERVICE3.pdf
+    - assets/pdf/osca/OSCA_SERVICE4.pdf
+    - assets/pdf/osca/OSCA_SERVICE5.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE1.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE2.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE3.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE4.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE5.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE6.pdf
+    - assets/pdf/mswdo/MSWDO_SERVICE7.pdf
+    - assets/pdf/stac_office/STAC_SERVICE.pdf
+    - assets/pdf/tollroads_office/TOLLROADS_SERVICE.pdf
+    - assets/pdf/tch_office/TCH_SERVICE1.pdf
+    - assets/pdf/tch_office/TCH_SERVICE2.pdf
+    - assets/pdf/tch_office/TCH_SERVICE3.pdf
+    - assets/pdf/tch_office/TCH_SERVICE4.pdf
+    - assets/pdf/tch_office/TCH_SERVICE5.pdf
+    - assets/pdf/tch_office/TCH_SERVICE6.pdf
+    - assets/pdf/tch_office/TCH_SERVICE7.pdf
+    - assets/pdf/tch_office/TCH_SERVICE8.pdf
+    - assets/pdf/tch_office/TCH_SERVICE9.pdf
+    - assets/pdf/tch_office/TCH_SERVICE10.pdf
+    - assets/pdf/tch_office/TCH_SERVICE11.pdf
+    - assets/pdf/tch_office/TCH_SERVICE12.pdf
+    - assets/pdf/waterworks_office/WATERWORKS_SERVICE1.pdf
+    - assets/pdf/waterworks_office/WATERWORKS_SERVICE2.pdf
+    - assets/pdf/waterworks_office/WATERWORKS_SERVICE3.pdf
+    - assets/pdf/waterworks_office/WATERWORKS_SERVICE4.pdf
+    - assets/pdf/mto/MTO_SERVICES1.pdf
+    - assets/pdf/mto/MTO_SERVICES2.pdf
+    - assets/pdf/mto/MTO_SERVICES3.pdf
+    - assets/pdf/mto/MTO_SERVICES4.pdf
+    - assets/pdf/mto/MTO_SERVICES5.pdf
+    - assets/pdf/mto/MTO_SERVICES6.pdf
+    - assets/pdf/mto/MTO_SERVICES7.pdf
+    - assets/pdf/mto/MTO_SERVICES8.pdf
+    - assets/pdf/mto/MTO_SERVICES9.pdf
+    - assets/pdf/mto/MTO_SERVICES10.pdf
+    - assets/pdf/mto/MTO_SERVICES11.pdf
+    - assets/pdf/mto/MTO_SERVICES12.pdf
+    - assets/pdf/mto/MTO_SERVICES13.pdf
+    - assets/pdf/mto/MTO_SERVICES14.pdf
+    - assets/pdf/mto/MTO_SERVICES15.pdf
+    - assets/pdf/mto/MTO_SERVICES16.pdf
+    - assets/pdf/mto/MTO_SERVICES17.pdf
+    - assets/pdf/mto/MTO_SERVICES18.pdf
+    - assets/pdf/mto/MTO_SERVICES19.pdf
+    - assets/pdf/mto/MTO_SERVICES20.pdf
+    - assets/pdf/mto/MTO_SERVICES21.pdf
+    - assets/pdf/mto/MTO_SERVICES22.pdf
+    - assets/pdf/mto/MTO_SERVICES23.pdf
+    - assets/pdf/mto/MTO_SERVICES24.pdf
+    - assets/pdf/mto/MTO_SERVICES25.pdf
+    - assets/pdf/mto/MTO_SERVICES26.pdf
+    - assets/pdf/mto/MTO_SERVICES27.pdf
+    - assets/pdf/mto/MTO_SERVICES28.pdf
+    - assets/pdf/vision_mission/visionMission.pdf
+    - assets/pdf/handbook/handbook.pdf
+
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
