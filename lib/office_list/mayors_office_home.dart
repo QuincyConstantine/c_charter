@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../service_list/mayors_office_services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class MayorsOfficeHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,14 @@ class MayorsOfficeHome extends StatelessWidget {
           height: 150, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFFD2691E),
+            color: Color(0xFF6A0DAD),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.scaleBalanced, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

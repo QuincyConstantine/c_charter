@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../service_list/waterworks_office_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class WaterworksOfficeHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class WaterworksOfficeHome extends StatelessWidget {
           height: 150, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFF32CD32),// Plain background color
+            color: Color(0xFF008080),// Plain background color
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
@@ -36,10 +36,10 @@ class WaterworksOfficeHome extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.droplet, // Using Font Awesome dollar sign icon
                 size: 50,
-                color: Colors.white, // Icon color to match Google Classroom style
+                color: Colors.white,
               ),
               SizedBox(width: 15),
               Column(

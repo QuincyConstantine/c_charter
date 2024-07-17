@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../service_list/agriculture_office_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 class AgricultureOfficeHome extends StatelessWidget {
@@ -18,14 +19,14 @@ class AgricultureOfficeHome extends StatelessWidget {
           height: 200, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFF32CD32),
+            color: Color(0xFF4F7942),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.leaf, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../service_list/osca_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class OscaHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,14 @@ class OscaHome extends StatelessWidget {
           height: 200, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFF32CD32),
+            color: Color(0xFFB76E79),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.personWalkingWithCane, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

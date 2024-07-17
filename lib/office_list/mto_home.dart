@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../service_list/mto_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class MtoHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,18 +19,14 @@ class MtoHome extends StatelessWidget {
           height: 200, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blue, Colors.lightBlueAccent],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
+            color: Color(0xFF000080),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.coins, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

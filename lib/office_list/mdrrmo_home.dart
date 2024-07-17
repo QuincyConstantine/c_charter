@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../service_list/mdrrmo_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 class MdrrmoHome extends StatelessWidget {
@@ -18,14 +19,14 @@ class MdrrmoHome extends StatelessWidget {
           height: 150, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFFDC143C),
+            color: Color(0xFFF28500),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.thunderstorm, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../service_list/menro_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 class MenroHome extends StatelessWidget {
@@ -24,8 +25,8 @@ class MenroHome extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.tree, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

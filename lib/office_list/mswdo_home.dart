@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../service_list/mswdo_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class MswdoHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,14 @@ class MswdoHome extends StatelessWidget {
           height: 200, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFFD2691E),
+            color: Color(0xFF0047AB),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.handsHelping, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

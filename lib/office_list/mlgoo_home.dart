@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../service_list/mlgoo_services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class MlgooHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,8 @@ class MlgooHome extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.city, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

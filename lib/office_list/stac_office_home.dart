@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../service_list/stac_office_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class StacOfficeHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,10 @@ class StacOfficeHome extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.squarePersonConfined, // Using Font Awesome dollar sign icon
                 size: 50,
-                color: Colors.white, // Icon color to match Google Classroom style
+                color: Colors.white,
               ),
               SizedBox(width: 15),
               Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../service_list/budget_office_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 class BudgetOfficeHome extends StatelessWidget {
@@ -18,14 +19,14 @@ class BudgetOfficeHome extends StatelessWidget {
           height: 150, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFF20B2AA),
+            color: Color(0xFF673AB7),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.calculator, // Using Font Awesome dollar sign icon
                 size: 50,
                 color: Colors.white,
               ),

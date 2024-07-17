@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../service_list/tollroads_office_services.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class TollroadsOfficeHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class TollroadsOfficeHome extends StatelessWidget {
           height: 150, // Set the height of the card
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFFFF00FF),// Plain background color
+            color: Color(0xFF808080),// Plain background color
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
@@ -36,10 +36,10 @@ class TollroadsOfficeHome extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.account_balance,
+              FaIcon(
+                FontAwesomeIcons.road, // Using Font Awesome dollar sign icon
                 size: 50,
-                color: Colors.white, // Icon color to match Google Classroom style
+                color: Colors.white,
               ),
               SizedBox(width: 15),
               Column(
