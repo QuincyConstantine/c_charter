@@ -57,7 +57,7 @@ class TchOfficeHome extends StatelessWidget {
                   Text(
                     'TUBIGON COMMUNITY HOSPITAL',
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

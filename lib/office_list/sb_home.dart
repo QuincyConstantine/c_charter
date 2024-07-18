@@ -38,7 +38,7 @@ class SbHome extends StatelessWidget {
                   Text(
                     'SECRETARY TO THE SB',
                     style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

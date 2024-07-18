@@ -138,7 +138,7 @@ class AssessorOfficeServicesScreen extends StatelessWidget {
                   height: 200,
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color(0xFF000080),
+                    color: Color(0xFF191970),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

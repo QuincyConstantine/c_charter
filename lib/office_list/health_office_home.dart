@@ -38,7 +38,7 @@ class HealthOfficeHome extends StatelessWidget {
                   Text(
                     'MUNICIPAL HEALTH OFFICE',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

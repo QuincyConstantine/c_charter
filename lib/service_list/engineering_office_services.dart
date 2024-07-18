@@ -94,7 +94,7 @@ class EngineeringOfficeServicesScreen extends StatelessWidget {
                   height: 150,
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color(0xFF000080),
+                    color: Color(0xFF4682B4),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

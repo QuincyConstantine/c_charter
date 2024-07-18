@@ -21,10 +21,10 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
           backgroundColor: Colors.blue, // White background for the AppBar
           elevation: 0.0, // No shadow for the AppBar
           leading: IconButton(
-            icon: Icon(Icons.menu, color: Colors.black),
+            icon: Icon(Icons.menu, color: Colors.white),
             onPressed: () => scaffoldKey.currentState?.openDrawer(),
           ),
-          title: Text("Citizen's Charter", style: TextStyle(color: Colors.black)),
+          title: Text("Citizen's Charter", style: TextStyle(color: Colors.white)),
         ),
       ),
     );

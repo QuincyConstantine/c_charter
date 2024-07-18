@@ -79,7 +79,7 @@ class TollroadsOfficeServicesScreen extends StatelessWidget {
                   height: 200,
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color(0xFF000080), // Background color set to navy blue (hex: #000080)
+                    color: Color(0xFF808080), // Background color set to navy blue (hex: #000080)
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(

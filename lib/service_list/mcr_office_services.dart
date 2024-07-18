@@ -136,7 +136,7 @@ class McrServicesScreen extends StatelessWidget {
                   height: 200,
                   padding: EdgeInsets.all(15),
                   decoration: BoxDecoration(
-                    color: Color(0xFF000080),
+                    color: Color(0xFF007BA7),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
