@@ -24,7 +24,7 @@ class CustomNavBar extends StatelessWidget implements PreferredSizeWidget {
             icon: Icon(Icons.menu, color: Colors.white),
             onPressed: () => scaffoldKey.currentState?.openDrawer(),
           ),
-          title: Text("Citizen's Charter", style: TextStyle(color: Colors.white)),
+          title: Text("Citizen's Charter", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         ),
       ),
     );

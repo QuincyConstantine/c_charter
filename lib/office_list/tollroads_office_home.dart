@@ -82,16 +82,16 @@ class TollroadsOfficeHome extends StatelessWidget {
   void _handleMenuClick(BuildContext context, int item) {
     switch (item) {
       case 0:
-        _launchURL('https://www.google.com/');
+        _launchURL('https://forms.gle/BMpJDcsNruK2SQMNA');
         break;
     }
   }
 
   void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
   }
-}
+  }
+

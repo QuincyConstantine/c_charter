@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../service_list/accounting_office_services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../service_list/accounting_office_services.dart';
 
 class AccountingOfficeHome extends StatelessWidget {
   @override
@@ -16,18 +16,18 @@ class AccountingOfficeHome extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.all(10),
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.9, // Set the width of the card
-          height: 150, // Set the height of the card
+          width: MediaQuery.of(context).size.width * 0.9,
+          height: 150,
           padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Color(0xFF708090), // Set the background color to the specified hex code
+            color: Color(0xFF708090),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               FaIcon(
-                FontAwesomeIcons.chartLine, // Using Font Awesome dollar sign icon
+                FontAwesomeIcons.chartLine,
                 size: 50,
                 color: Colors.white,
               ),
@@ -51,7 +51,7 @@ class AccountingOfficeHome extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(), // This will push the vertical ellipsis to the end
+              Spacer(),
               PopupMenuButton<int>(
                 icon: Icon(Icons.more_vert, color: Colors.white),
                 onSelected: (item) => _handleMenuClick(context, item),
@@ -73,15 +73,14 @@ class AccountingOfficeHome extends StatelessWidget {
 void _handleMenuClick(BuildContext context, int item) {
   switch (item) {
     case 0:
-      _launchURL('https://www.google.com/');
+      _launchURL('https://forms.gle/x4QjqEKvtKoyUbdY8');
       break;
   }
 }
 
 void _launchURL(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
+  final Uri uri = Uri.parse(url);
+  if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
     throw 'Could not launch $url';
   }
 }

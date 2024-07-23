@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.0.8
   smooth_page_indicator: ^1.1.0
   font_awesome_flutter: ^10.0.0
+  url_launcher: ^6.1.7
 
 dev_dependencies:
   flutter_test:
@@ -74,9 +75,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/image/bungoton.jpg
-    - assets/image/iro.jpg
-    - assets/image/orasan.jpg
+    - assets/image/feedback_1.png
+    - assets/image/feedback_2.png
+    - assets/image/feedback_3.png
+    - assets/image/feedback_4.png
+    - assets/image/feedback_5.png
+    - assets/image/office_1.png
+    - assets/image/office_2.png
+    - assets/image/office_3.png
 
 
     - assets/pdf/accounting_office/ACCOUNTING_SERVICE1.pdf
@@ -257,6 +263,8 @@ flutter:
     - assets/pdf/mto/MTO_SERVICES28.pdf
     - assets/pdf/vision_mission/visionMission.pdf
     - assets/pdf/handbook/handbook.pdf
+    - assets/pdf/secretary_sb/SB_SERVICE.pdf
+    - assets/image/CC LOGO.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
