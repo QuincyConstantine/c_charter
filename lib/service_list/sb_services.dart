@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class SbServicesScreen extends StatelessWidget {
@@ -7,6 +8,21 @@ class SbServicesScreen extends StatelessWidget {
     'ADMINISTRATIVE SERVICES',
     'ABOUT THE SERVICE'
   ];
+
+  final List<String> backContents = [
+    'Details about Secretary to the SB',
+    'Details about Administrative Services',
+    'ABOUT THE SERVICE: The PUBLIC may request for certified true copies of Municipal Council Documents such as resolutions, ordinances, minutes of the sessions and other official issuances of the Office of the Sangguniang Bayan, through the Office of the Secretary to the Sangguniang Bayan and NGOs and Pos may inquire for the requirements for the accreditation.',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'ABOUT THE SERVICE':
+        return 'assets/pdf/secretary_sb/SB_SERVICE.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,59 +64,17 @@ class SbServicesScreen extends StatelessWidget {
               ),
             );
           } else if (index != 1) {
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (sbCards[index]) {
-                  case 'ABOUT THE SERVICE':
-                    pdfPath = 'assets/pdf/secretary_sb/SB_SERVICE.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFDC143C),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        sbCards[index],
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            final pdfPath = _getPdfPath(sbCards[index]);
+            return FlippingCard(
+              frontText: sbCards[index],
+              backText: backContents[index],
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFFDC143C), // Original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: 20, // Front text size
+              backTextSize: 14.0, // Back text size
             );
           } else {
             return SizedBox();

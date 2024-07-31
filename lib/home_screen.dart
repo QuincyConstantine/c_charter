@@ -46,49 +46,200 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
             children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    DrawerHeader(
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                      ),
+                      child: Text(
+                        'MENU',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.account_balance),
+                      title: Text('Vision, Mission'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyPdfViewer(pdfPath: 'assets/pdf/vision_mission/visionMission.pdf'),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.account_box_outlined),
+                      title: Text('Citizen Charter Handbook'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyPdfViewer(pdfPath: 'assets/pdf/handbook/handbook.pdf'),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.info_outline),
+                      title: Text('App Info'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyPdfViewer(pdfPath: 'assets/pdf/about_app/CC_AboutApp.pdf'),
+                          ),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.developer_board),
+                      title: Text('Developers'),
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: ListView(
+                                children: [
+                                  Text(
+                                    'BISU - CALAPE',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Gardson Binasbas',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Contact Number: 09655660067',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                          Text(
+                                            'Email: gardson.binasbas@bisu.edu.ph',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Jacob Peter D. Pondoyo',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Contact Number: 09466135784',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                          Text(
+                                            'Email: jacobpeter.pondoyo@bisu.edu.ph',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Card(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Hector F. Logroño',
+                                            style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(height: 8),
+                                          Text(
+                                            'Contact Number: 09357943051',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                          Text(
+                                            'Email: hector.logrono@bisu.edu.ph',
+                                            style: TextStyle(fontSize: 16),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ],
                 ),
-                child: Text(
-                  'MENU',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+              ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/image/bisuXtubigon.png', // Replace with your school logo asset path
+                        height: 100,
+                        width: 100,
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              ListTile(
-                leading: Icon(Icons.account_balance),
-                title: Text('Vision, Mission'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(pdfPath: 'assets/pdf/vision_mission/visionMission.pdf'),
+                  SizedBox(height: 0), // Space between the logos and text
+                  Text(
+                    'BISU - CALAPE',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                  );
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.account_box_outlined),
-                title: Text('Citizen Charter Handbook'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(pdfPath: 'assets/pdf/handbook/handbook.pdf'),
+                  ),
+                  Text(
+                    'All rights reserved',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
                     ),
-                  );
-                },
+                  ),
+                  SizedBox(height: 20), // Optional: Add some space at the bottom
+                ],
               ),
             ],
           ),
         ),
-        body: Padding(
+          body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Column(

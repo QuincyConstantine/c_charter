@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class MlgooServicesScreen extends StatelessWidget {
@@ -9,6 +10,27 @@ class MlgooServicesScreen extends StatelessWidget {
     'ISSUANCE OF CERTIFICATE OF INCUMBENCY (BRGY. & MUNICIPAL)',
     'PROCESSING OF AUTHORITY TO PURCHASE VEHICLE'
   ];
+
+  final List<String> backContents = [
+    'Details about MLGOO services',
+    'Details about Administrative Services',
+    'Claimants/Beneficiaries of the Deceased Barangay Officials',
+    'Municipal and Barangay Officials',
+    'Local Government Unit'
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'PROCESSING OF BARANGAY OFFICIAL’S DEATH BENEFIT ASSISTANCE':
+        return 'assets/pdf/mlgoo/MLGOO_SERVICE1.pdf';
+      case 'ISSUANCE OF CERTIFICATE OF INCUMBENCY (BRGY. & MUNICIPAL)':
+        return 'assets/pdf/mlgoo/MLGOO_SERVICE2.pdf';
+      case 'PROCESSING OF AUTHORITY TO PURCHASE VEHICLE':
+        return 'assets/pdf/mlgoo/MLGOO_SERVICE3.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,65 +72,17 @@ class MlgooServicesScreen extends StatelessWidget {
               ),
             );
           } else if (index != 1) {
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (mlgooCards[index]) {
-                  case 'PROCESSING OF BARANGAY OFFICIAL’S DEATH BENEFIT ASSISTANCE':
-                    pdfPath = 'assets/pdf/mlgoo/MLGOO_SERVICE1.pdf';
-                    break;
-                  case 'ISSUANCE OF CERTIFICATE OF INCUMBENCY (BRGY. & MUNICIPAL)':
-                    pdfPath = 'assets/pdf/mlgoo/MLGOO_SERVICE2.pdf';
-                    break;
-                  case  'PROCESSING OF AUTHORITY TO PURCHASE VEHICLE' :
-                    pdfPath = 'assets/pdf/mlgoo/MLGOO_SERVICE3.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF20B2AA),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        mlgooCards[index],
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            final pdfPath = _getPdfPath(mlgooCards[index]);
+            return FlippingCard(
+              frontText: mlgooCards[index],
+              backText: backContents[index],
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFF20B2AA), // Original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: mlgooCards[index].length > 50 ? 15 : 20, // Front text size
+              backTextSize: 17.0, // Back text size
             );
           } else {
             return SizedBox();

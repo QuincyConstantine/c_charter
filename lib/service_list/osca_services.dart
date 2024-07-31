@@ -1,23 +1,50 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class OscaServicesScreen extends StatelessWidget {
   final List<String> oscaCards = [
-    'OFFICE OF SENIOR CITIZENS AFFAIRS(OSCA)',
+    'OFFICE OF SENIOR CITIZENS AFFAIRS (OSCA)',
     'ADMINISTRATIVE SERVICES',
     'RECEIVING COMPLAINTS FOR NOT GRANTING DISCOUNTS',
     'ISSUANCE OF OSCA ID',
     'GRANTING OF BURIAL ASSISTANCE',
     'ISSUANCE OF PURCHASE BOOKLETS',
     'ISSUANCE OF MEMBER DATA RECORD (MDR)',
-
   ];
+
+  final List<String> backContents = [
+    'Details about Office of Senior Citizens Affairs (OSCA)',
+    'Details about Administrative Services',
+    'To investigate the validity of the complaint if ever the complaint had reasonable cause, then advice complaint to fill up a complaint form. Adopting due process from filing a formal complaint in court ',
+    'To safeguard the use and disposition of the Municipal Government\'s assets and to determine its liabilities from claims, pre-audit is undertaken by the Municipal Accountant to determine that all necessary supporting documents of vouchers/ claims are submitted.',
+    'To safeguard the use and disposition of the Municipal Government\'s assets and to determine its liabilities from claims, pre-audit is undertaken by the Municipal Accountant to determine that all necessary supporting documents of vouchers/ claims are submitted.',
+    'To safeguard the use and disposition of the Municipal Government\'s assets and to determine its liabilities from claims, pre-audit is undertaken by the Municipal Accountant to determine that all necessary supporting documents of vouchers/ claims are submitted.',
+    'To safeguard the use and disposition of the Municipal Government\'s assets and to determine its liabilities from claims, pre-audit is undertaken by the Municipal Accountant to determine that all necessary supporting documents of vouchers/ claims are submitted. ',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'RECEIVING COMPLAINTS FOR NOT GRANTING DISCOUNTS':
+        return 'assets/pdf/osca/OSCA_SERVICE1.pdf';
+      case 'ISSUANCE OF OSCA ID':
+        return 'assets/pdf/osca/OSCA_SERVICE2.pdf';
+      case 'GRANTING OF BURIAL ASSISTANCE':
+        return 'assets/pdf/osca/OSCA_SERVICE3.pdf';
+      case 'ISSUANCE OF PURCHASE BOOKLETS':
+        return 'assets/pdf/osca/OSCA_SERVICE4.pdf';
+      case 'ISSUANCE OF MEMBER DATA RECORD (MDR)':
+        return 'assets/pdf/osca/OSCA_SERVICE5.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('OFFICE OF SENIOR CITIZENS AFFAIRS(OSCA)'),
+        title: Text('OFFICE OF SENIOR CITIZENS AFFAIRS (OSCA)'),
       ),
       body: ListView.builder(
         itemCount: oscaCards.length,
@@ -53,72 +80,17 @@ class OscaServicesScreen extends StatelessWidget {
               ),
             );
           } else if (index != 1) {
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (oscaCards[index]) {
-                  case 'RECEIVING COMPLAINTS FOR NOT GRANTING DISCOUNTS':
-                    pdfPath = 'assets/pdf/osca/OSCA_SERVICE1.pdf';
-                    break;
-                  case 'ISSUANCE OF OSCA ID':
-                    pdfPath = 'assets/pdf/osca/OSCA_SERVICE2.pdf';
-                    break;
-                  case  'GRANTING OF BURIAL ASSISTANCE' :
-                    pdfPath = 'assets/pdf/osca/OSCA_SERVICE3.pdf';
-                    break;
-                  case  'ISSUANCE OF PURCHASE BOOKLETS' :
-                    pdfPath = 'assets/pdf/osca/OSCA_SERVICE3.pdf';
-                    break;
-                  case  'ISSUANCE OF MEMBER DATA RECORD (MDR)' :
-                    pdfPath = 'assets/pdf/osca/OSCA_SERVICE3.pdf';
-                    break;
-
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFB76E79), // Background color set to navy blue (hex: #000080)
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        oscaCards[index],
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            final pdfPath = _getPdfPath(oscaCards[index]);
+            return FlippingCard(
+              frontText: oscaCards[index],
+              backText: backContents[index],
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFFB76E79), // Original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: 25, // Front text size
+              backTextSize: 16.0, // Back text size
             );
           } else {
             return SizedBox();

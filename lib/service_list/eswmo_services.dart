@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class EswmoServicesScreen extends StatelessWidget {
@@ -10,11 +11,32 @@ class EswmoServicesScreen extends StatelessWidget {
     'REPORT/COMPLAINT RECEIVED BY THE MESWM OFFICE (THRU LIT PERSONNEL) AND RELATIVE TO VARIOUS ACTIVITIES PUNISHABLE UNDER ESWM MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON AND BARANGAY OFFICIALS)',
   ];
 
+  final List<String> backContents = [
+    'Details about Ecological Solid Waste Management Office (ESWMO) services',
+    'Details about Administrative Services',
+    'Garbage collection services of the LGU is available to all households and business establishments within the municipality.',
+    'Any person can apply for garbage collection to be personally collected in their respective households for their biodegradable wastes.',
+    'Any person has the right to report and complaint (thru verbal, mobile phone or social media) any violations of ESWM ordinances and national laws committed within the territorial jurisdiction of the municipality',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'AVAILING OF GARBAGE COLLECTION':
+        return 'assets/pdf/eswmo/ESWMO_SERVICE1.pdf';
+      case 'GARBAGE COLLECTION FEE FOR HOUSEHOLDS/BUSINESS ESTABLISHMENTS (PAYING CLIENT)':
+        return 'assets/pdf/eswmo/ESWMO_SERVICE2.pdf';
+      case 'REPORT/COMPLAINT RECEIVED BY THE MESWM OFFICE (THRU LIT PERSONNEL) AND RELATIVE TO VARIOUS ACTIVITIES PUNISHABLE UNDER ESWM MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON AND BARANGAY OFFICIALS)':
+        return 'assets/pdf/eswmo/ESWMO_SERVICE3.pdf';
+      default:
+        return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Eswmo Office'),
+        title: Text('ESWMO Office'),
       ),
       body: ListView.builder(
         itemCount: eswmoCards.length,
@@ -50,66 +72,17 @@ class EswmoServicesScreen extends StatelessWidget {
               ),
             );
           } else if (index != 1) {
-            double fontSize = eswmoCards[index].length > 50 ? 14 : 20; // Adjust font size based on length
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (eswmoCards[index]) {
-                  case 'AVAILING OF GARBAGE COLLECTION':
-                    pdfPath = 'assets/pdf/eswmo/ESWMO_SERVICE1.pdf';
-                    break;
-                  case 'GARBAGE COLLECTION FEE FOR HOUSEHOLDS/BUSINESS ESTABLISHMENTS (PAYING CLIENT)':
-                    pdfPath = 'assets/pdf/eswmo/ESWMO_SERVICE2.pdf';
-                    break;
-                  case 'REPORT/COMPLAINT RECEIVED BY THE MESWM OFFICE (THRU LIT PERSONNEL) AND RELATIVE TO VARIOUS ACTIVITIES PUNISHABLE UNDER ESWM MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON AND BARANGAY OFFICIALS)':
-                    pdfPath = 'assets/pdf/eswmo/ESWMO_SERVICE3.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF8B4513), // Background color set to "000080"
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        eswmoCards[index],
-                        style: TextStyle(
-                          fontSize: fontSize, // Use conditional font size
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            final pdfPath = _getPdfPath(eswmoCards[index]);
+            return FlippingCard(
+              frontText: eswmoCards[index],
+              backText: backContents[index], // Set the unique back content here
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFF8B4513), // Retain original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: eswmoCards[index].length > 50 ? 13 : 20, // Front text size
+              backTextSize: 14.0, // Back text size
             );
           } else {
             return SizedBox();

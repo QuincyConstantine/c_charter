@@ -1,16 +1,42 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class EngineeringOfficeServicesScreen extends StatelessWidget {
   final List<String> engineeringCards = [
     'ENGINEERING OFFICE',
-    'ADMINISTRATIVE SERVICES',
     'SECURING BUILDING PERMIT',
     'SECURING OCCUPANCY PERMIT',
     'REQUEST THE PREPARATION OF PLAN AND PROGRAM OF WORKS',
     'REQUEST STREETLIGHT MAINTENANCE',
     'REQUEST DRAINAGE MAINTENANCE'
   ];
+
+  final List<String> backContents = [
+    'Details about Engineering Office services',
+    'The policy of the State to safeguard life, health, property, and public welfare, consistent with the principles of sound environmental management and control; and to this end, make it the purpose of this Code to provide for all buildings and structures, a framework of minimum standards and requirements to regulate and control their location, site, design, quality of materials, construction, use, occupancy and maintenance.',
+    'The policy of the State to safeguard life, health, property, and public welfare, consistent with the principles of sound environmental management and control; and to this end, make it the purpose of this Code to provide for all buildings and structures, a framework of minimum standards and requirements to regulate and control their location, site, design, quality of materials, construction, use, occupancy and maintenance.',
+    'The office of the Municipal Engineer is mandated to help the Barangay Officials in the preparation of plan and program of works.',
+    'The Office of the Municipal Engineer is mandated for the maintenance of streetlights within the Municipality of Tubigon.',
+    'The Office of the Municipal Engineer is mandated in the maintenance of drainage system within the Municipality of Tubigon.',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'SECURING BUILDING PERMIT':
+        return 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE1.pdf';
+      case 'SECURING OCCUPANCY PERMIT':
+        return 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE2.pdf';
+      case 'REQUEST THE PREPARATION OF PLAN AND PROGRAM OF WORKS':
+        return 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE3.pdf';
+      case 'REQUEST STREETLIGHT MAINTENANCE':
+        return 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE4.pdf';
+      case 'REQUEST DRAINAGE MAINTENANCE':
+        return 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE5.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,80 +72,24 @@ class EngineeringOfficeServicesScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Text(engineeringCards[1]),
+                    Text('ADMINISTRATIVE SERVICES'),
                   ],
                 ),
               ),
             );
-          } else if (index != 1) {
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (engineeringCards[index]) {
-                  case 'SECURING BUILDING PERMIT':
-                    pdfPath = 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE1.pdf';
-                    break;
-                  case 'SECURING OCCUPANCY PERMIT':
-                    pdfPath = 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE2.pdf';
-                    break;
-                  case 'REQUEST THE PREPARATION OF PLAN AND PROGRAM OF WORKS':
-                    pdfPath = 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE3.pdf';
-                    break;
-                  case 'REQUEST STREETLIGHT MAINTENANCE':
-                    pdfPath = 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE4.pdf';
-                    break;
-                  case 'REQUEST DRAINAGE MAINTENANCE':
-                    pdfPath = 'assets/pdf/engineering_office/ENGINEERING_OFFICE_SERVICE5.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 150,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF4682B4),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        engineeringCards[index],
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
           } else {
-            return SizedBox();
+            final pdfPath = _getPdfPath(engineeringCards[index]);
+            return FlippingCard(
+              frontText: engineeringCards[index],
+              backText: backContents[index], // Set the unique back content here
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFF4682B4), // Retain original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: 20, // Front text size
+              backTextSize: backContents[index].length > 200 ? 12 : 15, // Back text size
+            );
           }
         },
       ),

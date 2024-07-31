@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../flipping_card.dart'; // Import the FlippingCard widget
 import '../../pdf_display.dart'; // Import the PdfViewerScreen
 
 class TollroadsOfficeServicesScreen extends StatelessWidget {
@@ -6,8 +7,22 @@ class TollroadsOfficeServicesScreen extends StatelessWidget {
     'TOLL ROADS OFFICE',
     'ADMINISTRATIVE SERVICES',
     'COLLECTION OF FEES & STALL RENTAL',
-
   ];
+
+  final List<String> backContents = [
+    'Details about TOLL ROADS OFFICE',
+    'Details about ADMINISTRATIVE SERVICES',
+  'COLLECTION OF FEES & STALL RENTALAny person who will engage in various services below, to wit;\n- PARKING FEES (vehicles 4 wheelers up)\n- PARKING FEES (motorized tricycle for hire) \n- COMFORT ROOM FEES \n- RENTAL FEE ON GOVERNMENT OWNED BUILDING/LOT',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'COLLECTION OF FEES & STALL RENTAL':
+        return 'assets/pdf/tollroads_office/TOLLROADS_SERVICE.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,59 +64,17 @@ class TollroadsOfficeServicesScreen extends StatelessWidget {
               ),
             );
           } else if (index != 1) {
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (tollroadsCards[index]) {
-                  case 'COLLECTION OF FEES & STALL RENTAL':
-                    pdfPath = 'assets/pdf/tollroads_office/TOLLROADS_SERVICE.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF808080), // Background color set to navy blue (hex: #000080)
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        tollroadsCards[index],
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white, // Text color set to white for contrast
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70), // Text color set to white70 for contrast
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+            final pdfPath = _getPdfPath(tollroadsCards[index]);
+            return FlippingCard(
+              frontText: tollroadsCards[index],
+              backText: backContents[index],
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFF808080), // Original front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: 20, // Front text size
+              backTextSize: 14.0, // Back text size
             );
           } else {
             return SizedBox();

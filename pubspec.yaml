@@ -80,9 +80,11 @@ flutter:
     - assets/image/feedback_3.png
     - assets/image/feedback_4.png
     - assets/image/feedback_5.png
-    - assets/image/office_1.png
-    - assets/image/office_2.png
-    - assets/image/office_3.png
+    - assets/image/guide_1.png
+    - assets/image/guide_2.png
+    - assets/image/guide_3.png
+    - assets/image/guide_4.png
+    - assets/image/bisuXtubigon.png
 
 
     - assets/pdf/accounting_office/ACCOUNTING_SERVICE1.pdf
@@ -265,6 +267,7 @@ flutter:
     - assets/pdf/handbook/handbook.pdf
     - assets/pdf/secretary_sb/SB_SERVICE.pdf
     - assets/image/CC LOGO.jpg
+    - assets/pdf/about_app/CC_AboutApp.pdf
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

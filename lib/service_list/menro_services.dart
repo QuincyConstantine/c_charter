@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
+import '../flipping_card.dart'; // Import the FlippingCard widget
 import '../pdf_display.dart'; // Import the PdfViewerScreen
 
 class MenroServicesScreen extends StatelessWidget {
   final List<String> menroCards = [
     'MENRO',
-    'ADMINISTRATIVE SERVICES',
     'REQUEST FOR PRE-INSPECTION TO CUT TREES (IN COORDINATION WITH MDRRMC)',
     'REPORT/COMPLAINT RECEIVED BY THE MENRO OFFICE RELATIVE TO ILLEGAL CUTTING OF TREES, ILLEGAL FISHING, AND OTHER VARIOUS ACTIVITIES PUNISHABLE UNDER MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON, DENR, OR BFAR).'
   ];
+
+  final List<String> backContents = [
+    'Details about MENRO services',
+    'Any person can request for inspection as pre-requisite for their application for cutting permit at the CENRO/DENR.',
+    'Any person has the right to report and complaint (thru verbal, mobile phone or social media) any illegal activities committed within the territorial jurisdiction of the municipality.',
+  ];
+
+  String _getPdfPath(String cardTitle) {
+    switch (cardTitle) {
+      case 'REQUEST FOR PRE-INSPECTION TO CUT TREES (IN COORDINATION WITH MDRRMC)':
+        return 'assets/pdf/menro/MENRO_SERVICE1.pdf';
+      case 'REPORT/COMPLAINT RECEIVED BY THE MENRO OFFICE RELATIVE TO ILLEGAL CUTTING OF TREES, ILLEGAL FISHING, AND OTHER VARIOUS ACTIVITIES PUNISHABLE UNDER MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON, DENR, OR BFAR).':
+        return 'assets/pdf/menro/MENRO_SERVICE2.pdf';
+      default:
+        return '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,72 +60,24 @@ class MenroServicesScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Text(menroCards[1]),
+                    Text('ADMINISTRATIVE SERVICES'),
                   ],
                 ),
               ),
             );
-          } else if (index != 1) {
-            double fontSize = menroCards[index].length > 50 ? 13 : 20;
-            return GestureDetector(
-              onTap: () {
-                String pdfPath;
-                switch (menroCards[index]) {
-                  case 'REQUEST FOR PRE-INSPECTION TO CUT TREES (IN COORDINATION WITH MDRRMC)':
-                    pdfPath = 'assets/pdf/menro/MENRO_SERVICE1.pdf';
-                    break;
-                  case 'REPORT/COMPLAINT RECEIVED BY THE MENRO OFFICE RELATIVE TO ILLEGAL CUTTING OF TREES, ILLEGAL FISHING, AND OTHER VARIOUS ACTIVITIES PUNISHABLE UNDER MUNICIPAL ORDINANCES AND NATIONAL LAWS (WITH THE ASSISTANCE OF THE PNP – TUBIGON, DENR, OR BFAR).':
-                    pdfPath = 'assets/pdf/menro/MENRO_SERVICE2.pdf';
-                    break;
-                  default:
-                    pdfPath = '';
-                }
-
-                if (pdfPath.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => MyPdfViewer(
-                        pdfPath: pdfPath,
-                      ),
-                    ),
-                  );
-                } else {
-                  // Define your navigation logic here for other service cards if needed
-                }
-              },
-              child: Card(
-                margin: EdgeInsets.all(10),
-                child: Container(
-                  height: 200,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF20B2AA),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        menroCards[index],
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Click to view details',
-                        style: TextStyle(color: Colors.white70),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
           } else {
-            return SizedBox();
+            final pdfPath = _getPdfPath(menroCards[index]);
+            return FlippingCard(
+              frontText: menroCards[index],
+              backText: backContents[index], // Set the unique back content here
+              pdfPath: pdfPath.isNotEmpty ? pdfPath : null,
+              frontColor: Color(0xFF20B2AA), // Front color
+              backColor: Colors.grey[200]!, // Default back color
+              frontTextColor: Colors.white, // Front text color
+              backTextColor: Colors.black, // Back text color
+              frontTextSize: menroCards[index].length > 50 ? 14 : 20, // Front text size
+              backTextSize: 16.0, // Back text size
+            );
           }
         },
       ),
